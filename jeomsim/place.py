@@ -4,6 +4,20 @@ from math import sqrt
 class invalidResponse(Exception):
     pass
 
+def comparePlaces(place1,place2):
+    """
+        장소 두 곳을 비교해서(거리 : Column 3,가격대 : Column 1) 
+        place1이 더 가격대,거리가 나으면 -1, place2가 낫거나 같으면 1를 리턴하는 함수   
+    """
+    if place1[3] < place2[3]:
+        return -1
+    elif place1[3] > place2[3]:
+        return 1
+    else:
+        if place1[1] > place2[1]:
+            return -1
+        else:
+            return 1
 def getLocation(apiUrl,address):
     """
         VWorld Geocoder 2.0 Api를 이용하여 좌표를 가져오는 함수
