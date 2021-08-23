@@ -12,7 +12,7 @@ authDict = {
   "type": os.getenv("GAUTH_TYPE"), 
   "project_id": os.getenv("GAUTH_PROJECT_ID"), 
   "private_key_id": os.getenv("GAUTH_PRIVATE_KEY_ID"), 
-  "private_key": os.getenv("GAUTH_PRAIVATE_KEY"),
+  "private_key": os.getenv("GAUTH_PRAIVATE_KEY").replace('\\n', '\n'),
   "client_email": os.getenv("GAUTH_CLIENT_EMAIL"),
   "client_id": os.getenv("GAUTH_CLINET_ID"),
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
