@@ -1,0 +1,37 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Update stable worksheet with new added places.
+on:
+  schedule: 
+    - cron : '00 21 * * *'
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Run jeomsim/updater.py
+      run :
+        python jeomsim/updater.py
+      env :
+        GAUTH_CLIENT_EMAIL : ${{secrets.GAUTH_CLIENT_EMAIL}}
+        GAUTH_CLIENT_X509_CERT_URL : ${{secrets.GAUTH_CLIENT_X509_CERT_URL}}
+        GAUTH_CLINET_ID : ${{secrets.GAUTH_CLINET_ID}}
+        GAUTH_PRAIVATE_KEY : ${{secrets.GAUTH_PRAIVATE_KEY}}
+        GAUTH_PRAIVATE_KEY_ID : ${{secrets.GAUTH_PRAIVATE_KEY_ID}}
+        GAUTH_PROJECT_ID : ${{secrets.GAUTH_PROJECT_ID}}
+        GAUTH_TYPE : ${{secrets.GAUTH_TYPE}}
+        VWORLD_API_KEY : ${{secrets.VWORLD_API_KEY}}
+        HOME_ADDRESS : 부산광역시 부산진구 엄광로 176
+      
