@@ -33,5 +33,6 @@ jobs:
         GAUTH_PROJECT_ID : ${{secrets.GAUTH_PROJECT_ID}}
         GAUTH_TYPE : ${{secrets.GAUTH_TYPE}}
         VWORLD_API_KEY : ${{secrets.VWORLD_API_KEY}}
+        SHEET_URL : ${{secrets.SHEET_URL}}
         HOME_ADDRESS : 부산광역시 부산진구 엄광로 176
       
