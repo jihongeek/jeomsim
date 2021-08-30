@@ -50,9 +50,9 @@ embedObject = {
 }
 
 priceDict = {
-    "상" : "10000원 이상",
-    "중" : "5000~9999원",
-    "하" : "0~4999원"
+    "상" : "10,000₩ 이상",
+    "중" : "5,000₩ 과 9,990₩ 사이",
+    "하" : "4,990₩ 이하"
 }
 # Embed Object의 fields에 장소 넣기
 for index,place in enumerate(pickedPlaces):
