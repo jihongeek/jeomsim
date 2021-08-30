@@ -47,10 +47,16 @@ embedObject = {
     "color" : 15105570, # ORANGE
     "fields" : [],
     "footer" : {"text" : f"Jeomsim {todayTime.year}"}
-} 
+}
+
+priceDict = {
+    "상" : "10000원 이상",
+    "중" : "5000~9999원",
+    "하" : "0~4999원"
+}
 # Embed Object의 fields에 장소 넣기
 for index,place in enumerate(pickedPlaces):
-    embedObject['fields'].append({ "name" : f"__**{index+1}.**__ 상호명 : *{place[0]}*", "value" : f"가격대 : {place[1]}\n대략적 위치 : {place[2]}\n[네이버 지도 링크]({place[4]})"})
+    embedObject['fields'].append({ "name" : f"__**{index+1}.**__ 상호명 : *{place[0]}*", "value" : f"가격대 : {priceDict[place[1]]}\n대략적 위치 : {place[2]}\n[네이버 지도 링크]({place[4]})"})
 
 # http 헤더 설정
 header = {"Content-Type" : "application/json"}
